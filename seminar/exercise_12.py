@@ -15,3 +15,9 @@ else:
     y = sum - x
     print(str(x) + ', ' +  str(y))
     
+# for i in range(1001):
+#     if i * (s1 - i) == p1:
+#         print("Загаданные числа ->", i, s1-i)
+#         break
+# else:
+#     print("при данных исходных решений нет")

@@ -1,0 +1,50 @@
+# В настольной игре Скрабл (Scrabble) каждая буква имеет определенную
+# ценность. В случае с английским алфавитом очки распределяются так:
+# ● A, E, I, O, U, L, N, S, T, R – 1 очко;
+# ● D, G – 2 очка;
+# ● B, C, M, P – 3 очка;
+# ● F, H, V, W, Y – 4 очка;
+# ● K – 5 очков;
+# ● J, X – 8 очков;
+# ● Q, Z – 10 очков.
+# А русские буквы оцениваются так:
+# ● А, В, Е, И, Н, О, Р, С, Т – 1 очко;
+# ● Д, К, Л, М, П, У – 2 очка;
+# ● Б, Г, Ё, Ь, Я – 3 очка;
+# ● Й, Ы – 4 очка;
+# ● Ж, З, Х, Ц, Ч – 5 очков;
+# ● Ш, Э, Ю – 8 очков;
+# ● Ф, Щ, Ъ – 10 очков.
+# Напишите программу, которая вычисляет стоимость введенного пользователем слова.
+# Будем считать, что на вход подается только одно слово, которое содержит либо только
+# английские, либо только русские буквы.
+
+word = str(input('Введите слово :'))
+
+onePoint =  frozenset({'A', 'E', 'I', 'O', 'U', 'L', 'N', 'S', 'T', 'R', 'А', 'В', 'Е', 'И', 'Н', 'О', 'Р', 'С', 'Т'})
+twoPoints = frozenset({'D', 'G', 'Д', 'К', 'Л', 'М', 'П', 'У'})
+threePoints = frozenset({'B', 'C', 'M', 'P', 'Б', 'Г', 'Ё', 'Ь', 'Я'})
+fourPoints = frozenset({'F', 'H', 'V', 'W', 'Y', 'Й', 'Ы'})
+fivePoints = frozenset({'K', 'Ж', 'З', 'Х', 'Ц', 'Ч'})
+eightPoints = frozenset({'J', 'X', 'Ш', 'Э', 'Ю'})
+tenPoints = frozenset({'Q', 'Z', 'Ф', 'Щ', 'Ъ'})
+
+counter = 0
+
+for i in word.join(word.split()):
+    if i.upper() in onePoint:
+        counter = counter + 1
+    elif i.upper() in twoPoints:
+        counter = counter + 2
+    elif i.upper() in threePoints:
+        counter = counter + 3
+    elif i.upper() in fourPoints:
+        counter = counter + 4
+    elif i.upper() in fivePoints:
+        counter = counter + 5
+    elif i.upper() in eightPoints:
+        counter = counter + 8
+    else:
+        counter = counter + 10
+        
+print('Очков: ' + str(counter))
